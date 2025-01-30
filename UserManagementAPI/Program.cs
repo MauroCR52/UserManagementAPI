@@ -34,7 +34,6 @@ var app = builder.Build();
 app.UseErrorHandlingMiddleware();
 
 // 2. Authentication middleware (enforces token validation before processing requests).
-app.UseJwtAuthenticationMiddleware();
 
 
 // Configure the HTTP request pipeline.
@@ -46,6 +45,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 // 3. Logging middleware (logs requests and responses)
